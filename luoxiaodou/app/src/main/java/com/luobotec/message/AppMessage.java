@@ -286,7 +286,7 @@ public final class AppMessage {
 
   /**
    * <pre>
-   *Ã¶¾ÙÏûÏ¢ÀàĞÍ
+   *æšä¸¾æ¶ˆæ¯ç±»å‹
    * </pre>
    *
    * Protobuf enum {@code com.luobotec.message.MotionMode}
@@ -385,7 +385,7 @@ public final class AppMessage {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     *ÒôÁ¿¼Ó
+     *éŸ³é‡åŠ 
      * </pre>
      *
      * <code>PLUS = 0;</code>
@@ -393,7 +393,7 @@ public final class AppMessage {
     PLUS(0),
     /**
      * <pre>
-     *ÒôÁ¿¼õ
+     *éŸ³é‡å‡
      * </pre>
      *
      * <code>MINUS = 1;</code>
@@ -401,7 +401,7 @@ public final class AppMessage {
     MINUS(1),
     /**
      * <pre>
-     *¾²Òô
+     *é™éŸ³
      * </pre>
      *
      * <code>OFF = 3;</code>
@@ -409,7 +409,7 @@ public final class AppMessage {
     OFF(3),
     /**
      * <pre>
-     *ÒôÁ¿¿ª
+     *éŸ³é‡å¼€
      * </pre>
      *
      * <code>ON = 4;</code>
@@ -419,7 +419,7 @@ public final class AppMessage {
 
     /**
      * <pre>
-     *ÒôÁ¿¼Ó
+     *éŸ³é‡åŠ 
      * </pre>
      *
      * <code>PLUS = 0;</code>
@@ -427,7 +427,7 @@ public final class AppMessage {
     public static final int PLUS_VALUE = 0;
     /**
      * <pre>
-     *ÒôÁ¿¼õ
+     *éŸ³é‡å‡
      * </pre>
      *
      * <code>MINUS = 1;</code>
@@ -435,7 +435,7 @@ public final class AppMessage {
     public static final int MINUS_VALUE = 1;
     /**
      * <pre>
-     *¾²Òô
+     *é™éŸ³
      * </pre>
      *
      * <code>OFF = 3;</code>
@@ -443,7 +443,7 @@ public final class AppMessage {
     public static final int OFF_VALUE = 3;
     /**
      * <pre>
-     *ÒôÁ¿¿ª
+     *éŸ³é‡å¼€
      * </pre>
      *
      * <code>ON = 4;</code>
@@ -4846,7 +4846,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *Á¬½Ó
+       *è¿æ¥
        * </pre>
        *
        * <code>CONNECT = 0;</code>
@@ -4854,7 +4854,7 @@ public final class AppMessage {
       CONNECT(0),
       /**
        * <pre>
-       *¶Ï¿ª
+       *æ–­å¼€
        * </pre>
        *
        * <code>DISCONNECT = 1;</code>
@@ -4862,7 +4862,7 @@ public final class AppMessage {
       DISCONNECT(1),
       /**
        * <pre>
-       *ÖØÃüÃû
+       *é‡å‘½å
        * </pre>
        *
        * <code>RENAME = 2;</code>
@@ -4872,7 +4872,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *Á¬½Ó
+       *è¿æ¥
        * </pre>
        *
        * <code>CONNECT = 0;</code>
@@ -4880,7 +4880,7 @@ public final class AppMessage {
       public static final int CONNECT_VALUE = 0;
       /**
        * <pre>
-       *¶Ï¿ª
+       *æ–­å¼€
        * </pre>
        *
        * <code>DISCONNECT = 1;</code>
@@ -4888,7 +4888,7 @@ public final class AppMessage {
       public static final int DISCONNECT_VALUE = 1;
       /**
        * <pre>
-       *ÖØÃüÃû
+       *é‡å‘½å
        * </pre>
        *
        * <code>RENAME = 2;</code>
@@ -6218,7 +6218,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *ÄĞº¢
+       *ç”·å­©
        * </pre>
        *
        * <code>GENDER_BOY = 0;</code>
@@ -6226,7 +6226,7 @@ public final class AppMessage {
       GENDER_BOY(0),
       /**
        * <pre>
-       *Å®º¢
+       *å¥³å­©
        * </pre>
        *
        * <code>GENDER_GIRL = 1;</code>
@@ -6234,7 +6234,7 @@ public final class AppMessage {
       GENDER_GIRL(1),
       /**
        * <pre>
-       *Î´Öª
+       *æœªçŸ¥
        * </pre>
        *
        * <code>GENDER_UNKNOW = 2;</code>
@@ -6244,7 +6244,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *ÄĞº¢
+       *ç”·å­©
        * </pre>
        *
        * <code>GENDER_BOY = 0;</code>
@@ -6252,7 +6252,7 @@ public final class AppMessage {
       public static final int GENDER_BOY_VALUE = 0;
       /**
        * <pre>
-       *Å®º¢
+       *å¥³å­©
        * </pre>
        *
        * <code>GENDER_GIRL = 1;</code>
@@ -6260,7 +6260,7 @@ public final class AppMessage {
       public static final int GENDER_GIRL_VALUE = 1;
       /**
        * <pre>
-       *Î´Öª
+       *æœªçŸ¥
        * </pre>
        *
        * <code>GENDER_UNKNOW = 2;</code>
@@ -7820,7 +7820,7 @@ public final class AppMessage {
 
     /**
      * <pre>
-     *²âÊÔ²ÎÊıÎª1
+     *æµ‹è¯•å‚æ•°ä¸º1
      * </pre>
      *
      * <code>required int32 type = 4;</code>
@@ -7828,7 +7828,7 @@ public final class AppMessage {
     boolean hasType();
     /**
      * <pre>
-     *²âÊÔ²ÎÊıÎª1
+     *æµ‹è¯•å‚æ•°ä¸º1
      * </pre>
      *
      * <code>required int32 type = 4;</code>
@@ -8060,7 +8060,7 @@ public final class AppMessage {
     private int type_;
     /**
      * <pre>
-     *²âÊÔ²ÎÊıÎª1
+     *æµ‹è¯•å‚æ•°ä¸º1
      * </pre>
      *
      * <code>required int32 type = 4;</code>
@@ -8070,7 +8070,7 @@ public final class AppMessage {
     }
     /**
      * <pre>
-     *²âÊÔ²ÎÊıÎª1
+     *æµ‹è¯•å‚æ•°ä¸º1
      * </pre>
      *
      * <code>required int32 type = 4;</code>
@@ -8697,7 +8697,7 @@ public final class AppMessage {
       private int type_ ;
       /**
        * <pre>
-       *²âÊÔ²ÎÊıÎª1
+       *æµ‹è¯•å‚æ•°ä¸º1
        * </pre>
        *
        * <code>required int32 type = 4;</code>
@@ -8707,7 +8707,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *²âÊÔ²ÎÊıÎª1
+       *æµ‹è¯•å‚æ•°ä¸º1
        * </pre>
        *
        * <code>required int32 type = 4;</code>
@@ -8717,7 +8717,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *²âÊÔ²ÎÊıÎª1
+       *æµ‹è¯•å‚æ•°ä¸º1
        * </pre>
        *
        * <code>required int32 type = 4;</code>
@@ -8730,7 +8730,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *²âÊÔ²ÎÊıÎª1
+       *æµ‹è¯•å‚æ•°ä¸º1
        * </pre>
        *
        * <code>required int32 type = 4;</code>
@@ -8955,7 +8955,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *ÔİÍ£
+       *æš‚åœ
        * </pre>
        *
        * <code>PAUSE = 0;</code>
@@ -8963,7 +8963,7 @@ public final class AppMessage {
       PAUSE(0),
       /**
        * <pre>
-       *¼ÌĞø
+       *ç»§ç»­
        * </pre>
        *
        * <code>CONTINUE = 1;</code>
@@ -8971,7 +8971,7 @@ public final class AppMessage {
       CONTINUE(1),
       /**
        * <pre>
-       *È«²¿²¥·Å
+       *å…¨éƒ¨æ’­æ”¾
        * </pre>
        *
        * <code>PLAY_ALL = 2;</code>
@@ -8979,7 +8979,7 @@ public final class AppMessage {
       PLAY_ALL(2),
       /**
        * <pre>
-       *²¥·Å
+       *æ’­æ”¾
        * </pre>
        *
        * <code>PLAY = 3;</code>
@@ -8987,7 +8987,7 @@ public final class AppMessage {
       PLAY(3),
       /**
        * <pre>
-       *ÉÏÒ»Çú
+       *ä¸Šä¸€æ›²
        * </pre>
        *
        * <code>PRE = 4;</code>
@@ -8995,7 +8995,7 @@ public final class AppMessage {
       PRE(4),
       /**
        * <pre>
-       *ÏÂÒ»Çú
+       *ä¸‹ä¸€æ›²
        * </pre>
        *
        * <code>NEXT = 5;</code>
@@ -9005,7 +9005,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *ÔİÍ£
+       *æš‚åœ
        * </pre>
        *
        * <code>PAUSE = 0;</code>
@@ -9013,7 +9013,7 @@ public final class AppMessage {
       public static final int PAUSE_VALUE = 0;
       /**
        * <pre>
-       *¼ÌĞø
+       *ç»§ç»­
        * </pre>
        *
        * <code>CONTINUE = 1;</code>
@@ -9021,7 +9021,7 @@ public final class AppMessage {
       public static final int CONTINUE_VALUE = 1;
       /**
        * <pre>
-       *È«²¿²¥·Å
+       *å…¨éƒ¨æ’­æ”¾
        * </pre>
        *
        * <code>PLAY_ALL = 2;</code>
@@ -9029,7 +9029,7 @@ public final class AppMessage {
       public static final int PLAY_ALL_VALUE = 2;
       /**
        * <pre>
-       *²¥·Å
+       *æ’­æ”¾
        * </pre>
        *
        * <code>PLAY = 3;</code>
@@ -9037,7 +9037,7 @@ public final class AppMessage {
       public static final int PLAY_VALUE = 3;
       /**
        * <pre>
-       *ÉÏÒ»Çú
+       *ä¸Šä¸€æ›²
        * </pre>
        *
        * <code>PRE = 4;</code>
@@ -9045,7 +9045,7 @@ public final class AppMessage {
       public static final int PRE_VALUE = 4;
       /**
        * <pre>
-       *ÏÂÒ»Çú
+       *ä¸‹ä¸€æ›²
        * </pre>
        *
        * <code>NEXT = 5;</code>
@@ -10043,7 +10043,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *³É¹¦
+       *æˆåŠŸ
        * </pre>
        *
        * <code>SUCCESS = 0;</code>
@@ -10051,7 +10051,7 @@ public final class AppMessage {
       SUCCESS(0),
       /**
        * <pre>
-       *ÕıÔÚÏÂÔØ
+       *æ­£åœ¨ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADING = 1;</code>
@@ -10059,7 +10059,7 @@ public final class AppMessage {
       DOWNLOADING(1),
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAIL = 2;</code>
@@ -10067,7 +10067,7 @@ public final class AppMessage {
       FAIL(2),
       /**
        * <pre>
-       *´æ´¢Âú
+       *å­˜å‚¨æ»¡
        * </pre>
        *
        * <code>STORAGE_FULL = 3;</code>
@@ -10077,7 +10077,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *³É¹¦
+       *æˆåŠŸ
        * </pre>
        *
        * <code>SUCCESS = 0;</code>
@@ -10085,7 +10085,7 @@ public final class AppMessage {
       public static final int SUCCESS_VALUE = 0;
       /**
        * <pre>
-       *ÕıÔÚÏÂÔØ
+       *æ­£åœ¨ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADING = 1;</code>
@@ -10093,7 +10093,7 @@ public final class AppMessage {
       public static final int DOWNLOADING_VALUE = 1;
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAIL = 2;</code>
@@ -10101,7 +10101,7 @@ public final class AppMessage {
       public static final int FAIL_VALUE = 2;
       /**
        * <pre>
-       *´æ´¢Âú
+       *å­˜å‚¨æ»¡
        * </pre>
        *
        * <code>STORAGE_FULL = 3;</code>
@@ -10830,7 +10830,7 @@ public final class AppMessage {
 
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -10838,7 +10838,7 @@ public final class AppMessage {
     boolean hasNluText();
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -10846,7 +10846,7 @@ public final class AppMessage {
     java.lang.String getNluText();
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -10968,7 +10968,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *±íÇé°å²âÊÔ
+       *è¡¨æƒ…æ¿æµ‹è¯•
        * </pre>
        *
        * <code>EMOTION = 0;</code>
@@ -10976,7 +10976,7 @@ public final class AppMessage {
       EMOTION(0),
       /**
        * <pre>
-       *¶Ï¿ªwifi
+       *æ–­å¼€wifi
        * </pre>
        *
        * <code>FORGET_WIFI = 1;</code>
@@ -10984,7 +10984,7 @@ public final class AppMessage {
       FORGET_WIFI(1),
       /**
        * <pre>
-       *¹À¼ÆÊÇÅÄÕÕ
+       *ä¼°è®¡æ˜¯æ‹ç…§
        * </pre>
        *
        * <code>TAKE_PICTURE = 2;</code>
@@ -10994,7 +10994,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *±íÇé°å²âÊÔ
+       *è¡¨æƒ…æ¿æµ‹è¯•
        * </pre>
        *
        * <code>EMOTION = 0;</code>
@@ -11002,7 +11002,7 @@ public final class AppMessage {
       public static final int EMOTION_VALUE = 0;
       /**
        * <pre>
-       *¶Ï¿ªwifi
+       *æ–­å¼€wifi
        * </pre>
        *
        * <code>FORGET_WIFI = 1;</code>
@@ -11010,7 +11010,7 @@ public final class AppMessage {
       public static final int FORGET_WIFI_VALUE = 1;
       /**
        * <pre>
-       *¹À¼ÆÊÇÅÄÕÕ
+       *ä¼°è®¡æ˜¯æ‹ç…§
        * </pre>
        *
        * <code>TAKE_PICTURE = 2;</code>
@@ -11105,7 +11105,7 @@ public final class AppMessage {
     private volatile java.lang.Object nluText_;
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -11115,7 +11115,7 @@ public final class AppMessage {
     }
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -11136,7 +11136,7 @@ public final class AppMessage {
     }
     /**
      * <pre>
-     *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+     *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
      * </pre>
      *
      * <code>optional string nluText = 2;</code>
@@ -11582,7 +11582,7 @@ public final class AppMessage {
       private java.lang.Object nluText_ = "";
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -11592,7 +11592,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -11613,7 +11613,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -11633,7 +11633,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -11650,7 +11650,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -11663,7 +11663,7 @@ public final class AppMessage {
       }
       /**
        * <pre>
-       *´ıai»Ø´ğµÄ×ÔÈ»ÎÄ×Ö,±ÈÈç½ñÌìÌìÆø
+       *å¾…aiå›ç­”çš„è‡ªç„¶æ–‡å­—,æ¯”å¦‚ä»Šå¤©å¤©æ°”
        * </pre>
        *
        * <code>optional string nluText = 2;</code>
@@ -15925,7 +15925,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *ÔÚÏß
+       *åœ¨çº¿
        * </pre>
        *
        * <code>OFFLINE = 0;</code>
@@ -15933,7 +15933,7 @@ public final class AppMessage {
       OFFLINE(0),
       /**
        * <pre>
-       *ÀëÏß
+       *ç¦»çº¿
        * </pre>
        *
        * <code>ONLINE = 1;</code>
@@ -15943,7 +15943,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *ÔÚÏß
+       *åœ¨çº¿
        * </pre>
        *
        * <code>OFFLINE = 0;</code>
@@ -15951,7 +15951,7 @@ public final class AppMessage {
       public static final int OFFLINE_VALUE = 0;
       /**
        * <pre>
-       *ÀëÏß
+       *ç¦»çº¿
        * </pre>
        *
        * <code>ONLINE = 1;</code>
@@ -16525,7 +16525,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *¾Ü¾ø
+       *æ‹’ç»
        * </pre>
        *
        * <code>REJECT = 0;</code>
@@ -16533,7 +16533,7 @@ public final class AppMessage {
       REJECT(0),
       /**
        * <pre>
-       *¹Ò¶Ï
+       *æŒ‚æ–­
        * </pre>
        *
        * <code>HANGEUP = 1;</code>
@@ -16543,7 +16543,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *¾Ü¾ø
+       *æ‹’ç»
        * </pre>
        *
        * <code>REJECT = 0;</code>
@@ -16551,7 +16551,7 @@ public final class AppMessage {
       public static final int REJECT_VALUE = 0;
       /**
        * <pre>
-       *¹Ò¶Ï
+       *æŒ‚æ–­
        * </pre>
        *
        * <code>HANGEUP = 1;</code>
@@ -19906,7 +19906,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *²¥·Å
+       *æ’­æ”¾
        * </pre>
        *
        * <code>RES_PLAYING = 0;</code>
@@ -19914,7 +19914,7 @@ public final class AppMessage {
       RES_PLAYING(0),
       /**
        * <pre>
-       *Í£Ö¹
+       *åœæ­¢
        * </pre>
        *
        * <code>RES_STOPPED = 1;</code>
@@ -19922,7 +19922,7 @@ public final class AppMessage {
       RES_STOPPED(1),
       /**
        * <pre>
-       *ÖĞ¶Ï
+       *ä¸­æ–­
        * </pre>
        *
        * <code>RES_INTERRUPT = 2;</code>
@@ -19932,7 +19932,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *²¥·Å
+       *æ’­æ”¾
        * </pre>
        *
        * <code>RES_PLAYING = 0;</code>
@@ -19940,7 +19940,7 @@ public final class AppMessage {
       public static final int RES_PLAYING_VALUE = 0;
       /**
        * <pre>
-       *Í£Ö¹
+       *åœæ­¢
        * </pre>
        *
        * <code>RES_STOPPED = 1;</code>
@@ -19948,7 +19948,7 @@ public final class AppMessage {
       public static final int RES_STOPPED_VALUE = 1;
       /**
        * <pre>
-       *ÖĞ¶Ï
+       *ä¸­æ–­
        * </pre>
        *
        * <code>RES_INTERRUPT = 2;</code>
@@ -20674,7 +20674,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *ÕıÔÚÁ¬½Ó
+       *æ­£åœ¨è¿æ¥
        * </pre>
        *
        * <code>CONNECTING = 0;</code>
@@ -20682,7 +20682,7 @@ public final class AppMessage {
       CONNECTING(0),
       /**
        * <pre>
-       *ÒÑÁ¬½Ó
+       *å·²è¿æ¥
        * </pre>
        *
        * <code>CONNECTED = 1;</code>
@@ -20690,7 +20690,7 @@ public final class AppMessage {
       CONNECTED(1),
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAILED = 2;</code>
@@ -20700,7 +20700,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *ÕıÔÚÁ¬½Ó
+       *æ­£åœ¨è¿æ¥
        * </pre>
        *
        * <code>CONNECTING = 0;</code>
@@ -20708,7 +20708,7 @@ public final class AppMessage {
       public static final int CONNECTING_VALUE = 0;
       /**
        * <pre>
-       *ÒÑÁ¬½Ó
+       *å·²è¿æ¥
        * </pre>
        *
        * <code>CONNECTED = 1;</code>
@@ -20716,7 +20716,7 @@ public final class AppMessage {
       public static final int CONNECTED_VALUE = 1;
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAILED = 2;</code>
@@ -21874,7 +21874,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *Î´³äµç
+       *æœªå……ç”µ
        * </pre>
        *
        * <code>CHARGENO = 0;</code>
@@ -21882,7 +21882,7 @@ public final class AppMessage {
       CHARGENO(0),
       /**
        * <pre>
-       *ÕıÔÚ³äµç
+       *æ­£åœ¨å……ç”µ
        * </pre>
        *
        * <code>CHARGING = 1;</code>
@@ -21890,7 +21890,7 @@ public final class AppMessage {
       CHARGING(1),
       /**
        * <pre>
-       *³äµçÍê³É
+       *å……ç”µå®Œæˆ
        * </pre>
        *
        * <code>CHARGEOK = 2;</code>
@@ -21900,7 +21900,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *Î´³äµç
+       *æœªå……ç”µ
        * </pre>
        *
        * <code>CHARGENO = 0;</code>
@@ -21908,7 +21908,7 @@ public final class AppMessage {
       public static final int CHARGENO_VALUE = 0;
       /**
        * <pre>
-       *ÕıÔÚ³äµç
+       *æ­£åœ¨å……ç”µ
        * </pre>
        *
        * <code>CHARGING = 1;</code>
@@ -21916,7 +21916,7 @@ public final class AppMessage {
       public static final int CHARGING_VALUE = 1;
       /**
        * <pre>
-       *³äµçÍê³É
+       *å……ç”µå®Œæˆ
        * </pre>
        *
        * <code>CHARGEOK = 2;</code>
@@ -23311,7 +23311,7 @@ public final class AppMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       *ÕıÔÚÏÂÔØ
+       *æ­£åœ¨ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADING = 0;</code>
@@ -23319,7 +23319,7 @@ public final class AppMessage {
       DOWNLOADING(0),
       /**
        * <pre>
-       *ÒÑÏÂÔØ
+       *å·²ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADED = 1;</code>
@@ -23327,7 +23327,7 @@ public final class AppMessage {
       DOWNLOADED(1),
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAILED = 2;</code>
@@ -23337,7 +23337,7 @@ public final class AppMessage {
 
       /**
        * <pre>
-       *ÕıÔÚÏÂÔØ
+       *æ­£åœ¨ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADING = 0;</code>
@@ -23345,7 +23345,7 @@ public final class AppMessage {
       public static final int DOWNLOADING_VALUE = 0;
       /**
        * <pre>
-       *ÒÑÏÂÔØ
+       *å·²ä¸‹è½½
        * </pre>
        *
        * <code>DOWNLOADED = 1;</code>
@@ -23353,7 +23353,7 @@ public final class AppMessage {
       public static final int DOWNLOADED_VALUE = 1;
       /**
        * <pre>
-       *Ê§°Ü
+       *å¤±è´¥
        * </pre>
        *
        * <code>FAILED = 2;</code>

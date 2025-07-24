@@ -338,7 +338,7 @@ public class BleLinker {
         return wifiManager.getConnectionInfo();
     }
     
-    //scanRecordsµÄ¸ñÊ½×ª»»
+    //scanRecordsçš„æ ¼å¼è½¬æ¢
     static final char[] hexArray = "0123456789ABCDEF".toCharArray();
     private static String bytesToHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
@@ -396,7 +396,7 @@ public class BleLinker {
                 }
             }
 
-            //±»¶¯  ÊÕµ½Êı¾İ
+            //è¢«åŠ¨  æ”¶åˆ°æ•°æ®
             @Override
             public void onDataNotified(byte[] data) {
                 super.onDataNotified(data);
@@ -405,7 +405,7 @@ public class BleLinker {
                 Log.d(TAG, String.format("BleCallback.onDataNotified: hex-%s text-'%s'",
                         GTransformer.bytes2HexStringWithWhitespace(data), text));
                 
-                Toast.makeText(mainActivity, "ÊÕµ½Êı¾İ:" + text, Toast.LENGTH_SHORT).show(); 
+                Toast.makeText(mainActivity, "æ”¶åˆ°æ•°æ®:" + text, Toast.LENGTH_SHORT).show(); 
 
                 
                 /*
@@ -427,7 +427,7 @@ public class BleLinker {
                 */
             }
 
-            //Ğ´ÈëÊı¾İ
+            //å†™å…¥æ•°æ®
             @Override
             public void onDataWritten(byte[] data, boolean success) {
                 super.onDataWritten(data, success);
@@ -449,7 +449,7 @@ public class BleLinker {
                 }
             }
 
-            //ÆôÓÃ±»¶¯¶ÁÊı¾İ³É¹¦
+            //å¯ç”¨è¢«åŠ¨è¯»æ•°æ®æˆåŠŸ
             @Override
             public void onNotifyChanged(Boolean enabled) {
                 super.onNotifyChanged(enabled);
@@ -458,14 +458,14 @@ public class BleLinker {
                 if (Boolean.TRUE == enabled) {
 
                     synchronized (linkingStatus) {
-                    	//×¼±¸ÅäÖÃBLE
+                    	//å‡†å¤‡é…ç½®BLE
                         linkingStatus.setData(LinkingStatus.KEY_CONNECT_BLE, true);
                         linkingStatus.notifyAll();
                     }
                 }
             }
 
-            //É¨Ãè½áÊø
+            //æ‰«æç»“æŸ
             @Override
             public void onScanFinished() {
                 super.onScanFinished();
@@ -797,7 +797,7 @@ public class BleLinker {
                 }
 
                 if (Boolean.TRUE == linkingStatus.getData(LinkingStatus.KEY_CONNECT_BLE)) {
-                	//ÊÂ¼şÍ¨Öª   Á¬½Ó³É¹¦
+                	//äº‹ä»¶é€šçŸ¥   è¿æ¥æˆåŠŸ
                     return true;
                 }
 
@@ -819,9 +819,9 @@ public class BleLinker {
     {
     	requestBuilder.setId(1);
     	AppMessage.Request request = requestBuilder.build();
-    	//×ª»»³É×Ö½ÚÊı×é
+    	//è½¬æ¢æˆå­—èŠ‚æ•°ç»„
     	byte[] byteArray = request.toByteArray();
-    	//´ò°ü
+    	//æ‰“åŒ…
         final Base64.Encoder encoder = Base64.getEncoder();
     	final String encodedText = "MSG:" + encoder.encodeToString(byteArray) + "@";
     			
@@ -833,7 +833,7 @@ public class BleLinker {
 
         linkingStatus.setProgress(LinkingProgress.CONFIG_BLE);
 
-//        //¹¹½¨Êı¾İ°ü
+//        //æ„å»ºæ•°æ®åŒ…
 //        AppMessage.WifiParams.Builder mybuild= AppMessage.WifiParams.newBuilder();
 //        mybuild.setName(ssid);
 //        mybuild.setPwd(password);
@@ -844,9 +844,9 @@ public class BleLinker {
 //        requestBuilder.setWifi(wifipara);
 //        
 //        AppMessage.Request request = requestBuilder.build();
-//		//×ª»»³É×Ö½ÚÊı×é
+//		//è½¬æ¢æˆå­—èŠ‚æ•°ç»„
 //		byte[] byteArray = request.toByteArray();
-//		//´ò°ü
+//		//æ‰“åŒ…
 //	    final Base64.Encoder encoder = Base64.getEncoder();
 //		final String encodedText = "MSG:" + encoder.encodeToString(byteArray) + "@";
 //		

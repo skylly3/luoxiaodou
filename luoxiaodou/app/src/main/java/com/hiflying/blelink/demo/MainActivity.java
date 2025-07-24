@@ -49,24 +49,24 @@ public class MainActivity extends Activity implements OnLinkListener {
     private EditText mSsidEditText;
     private EditText mPasswordEditText;
    // private EditText mBleNameEditText;
-    private Button mLinkButton;  //Á¬½ÓÀ¶ÑÀ
+    private Button mLinkButton;  //è¿æ¥è“ç‰™
     
-    private Button mBtnWifiU;  //ÉèÖÃwifi
-    private Button mBtnWifiD;   //¶Ï¿ªwifi
+    private Button mBtnWifiU;  //è®¾ç½®wifi
+    private Button mBtnWifiD;   //æ–­å¼€wifi
     
-    private Button mBtnMoveU;  //Ç°½ø
-    private Button mBtnMoveD;   //ºóÍË
-    private Button mBtnMoveL;  //×ó×ª
-    private Button mBtnMoveR;   //ÓÒ×ª
+    private Button mBtnMoveU;  //å‰è¿›
+    private Button mBtnMoveD;   //åé€€
+    private Button mBtnMoveL;  //å·¦è½¬
+    private Button mBtnMoveR;   //å³è½¬
     
-    private Button mBtnMoveS;   //Í£Ö¹ÔË¶¯
+    private Button mBtnMoveS;   //åœæ­¢è¿åŠ¨
     
-    private Button mBtnFace;   //±äÁ³  
-    private Button mBtnWheel;   //×ªÈ¦
+    private Button mBtnFace;   //å˜è„¸  
+    private Button mBtnWheel;   //è½¬åœˆ
     
-   // private Button mBtnSing;   //³ª¸è   
-    //private Button mBtnDance;   //ÌøÎè
-    private Button mBtnStory;   //½²¹ÊÊÂ   
+   // private Button mBtnSing;   //å”±æ­Œ   
+    //private Button mBtnDance;   //è·³èˆ
+    private Button mBtnStory;   //è®²æ•…äº‹   
     
     private TextView mMessageTextView;
 
@@ -80,41 +80,41 @@ public class MainActivity extends Activity implements OnLinkListener {
     private SharedPreferences mSharedPreferences;
     
     
-  //Ë«ÂÖ·Ö±ğ¿ØÖÆ
+  //åŒè½®åˆ†åˆ«æ§åˆ¶
   	public static AppMessage.Request.Builder func(
   			AppMessage.RobotAction.ActionDirection leftDir,
   			AppMessage.RobotAction.ActionDirection rightDir, int leftSpeed,
   			int rightSpeed, int leftUnit, int rightUnit, boolean bAvoid,
   			boolean bReset) {
-  		// ×ó½Å
+  		// å·¦è„š
   		AppMessage.RobotAction.Builder leftBuild = AppMessage.RobotAction
   				.newBuilder();
   		leftBuild.setType(AppMessage.RobotAction.ActionType.LEFT_FOOT);
   		leftBuild.setDirection(leftDir);
   		leftBuild.setSpeed(leftSpeed);
   		leftBuild.setUnits(leftUnit);
-  		// ÓÒ½Å
+  		// å³è„š
   		AppMessage.RobotAction.Builder rightBuild = AppMessage.RobotAction
   				.newBuilder();
   		rightBuild.setType(AppMessage.RobotAction.ActionType.RIGHT_FOOT);
   		rightBuild.setDirection(rightDir);
   		rightBuild.setSpeed(rightSpeed);
   		rightBuild.setUnits(rightUnit);
-  		// ¶¯×÷¼¯ºÏ
+  		// åŠ¨ä½œé›†åˆ
   		AppMessage.ActionBundle.Builder bBuild = AppMessage.ActionBundle
   				.newBuilder();
-  		// Æô¶¯Ê±¼ä
+  		// å¯åŠ¨æ—¶é—´
   		bBuild.setStartTime(0);
   		bBuild.addAction(leftBuild.build());
   		bBuild.addAction(rightBuild.build());
-  		// ¶¯×÷²ÎÊı ÊÇ·ñ±ÜÕÏ
+  		// åŠ¨ä½œå‚æ•° æ˜¯å¦é¿éšœ
   		AppMessage.ActionParams.Builder aBuild = AppMessage.ActionParams
   				.newBuilder();
   		aBuild.setAvoid(bAvoid);
   		if (bReset)
   			aBuild.setRest(bReset);
   		aBuild.addActions(bBuild.build());
-  		// ¶¯×÷ÇëÇó°ü
+  		// åŠ¨ä½œè¯·æ±‚åŒ…
   		AppMessage.Request.Builder requestBuilder = AppMessage.Request
   				.newBuilder();
   		requestBuilder
@@ -122,12 +122,12 @@ public class MainActivity extends Activity implements OnLinkListener {
   		requestBuilder.setActions(aBuild.build());
   		return (requestBuilder);
   	}
-  	//Ë«ÂÖÍ¬Ê±¿ØÖÆ
+  	//åŒè½®åŒæ—¶æ§åˆ¶
   	public static AppMessage.Request.Builder func(
   			AppMessage.RobotAction.ActionDirection Dir,
   			AppMessage.RobotAction.ActionType type, int Speed, int Unit,
   			boolean bAvoid) {
-  		// ¶¯×÷
+  		// åŠ¨ä½œ
   		AppMessage.RobotAction.Builder leftBuild = AppMessage.RobotAction
   				.newBuilder();
   		leftBuild.setType(type);
@@ -135,19 +135,19 @@ public class MainActivity extends Activity implements OnLinkListener {
   		leftBuild.setSpeed(Speed);
   		leftBuild.setUnits(Unit);
 
-  		// ¶¯×÷¼¯ºÏ
+  		// åŠ¨ä½œé›†åˆ
   		AppMessage.ActionBundle.Builder bBuild = AppMessage.ActionBundle
   				.newBuilder();
-  		// Æô¶¯Ê±¼ä
+  		// å¯åŠ¨æ—¶é—´
   		bBuild.setStartTime(0);
   		bBuild.addAction(leftBuild.build());
-  		// ¶¯×÷²ÎÊı ÊÇ·ñ±ÜÕÏ
+  		// åŠ¨ä½œå‚æ•° æ˜¯å¦é¿éšœ
   		AppMessage.ActionParams.Builder aBuild = AppMessage.ActionParams
   				.newBuilder();
   		aBuild.setAvoid(bAvoid);
 
   		aBuild.addActions(bBuild.build());
-  		// ¶¯×÷ÇëÇó°ü
+  		// åŠ¨ä½œè¯·æ±‚åŒ…
   		AppMessage.Request.Builder requestBuilder = AppMessage.Request
   				.newBuilder();
   		requestBuilder
@@ -155,34 +155,34 @@ public class MainActivity extends Activity implements OnLinkListener {
   		requestBuilder.setActions(aBuild.build());
   		return (requestBuilder);
   	}
-  	//Ë«ÂÖÍ¬Ê±¿ØÖÆ
+  	//åŒè½®åŒæ—¶æ§åˆ¶
   	public static AppMessage.Request.Builder func(
   			AppMessage.RobotAction.ActionDirection Dir, int Speed, int Unit,
   			boolean bAvoid) {
   		return func(Dir, AppMessage.RobotAction.ActionType.FEET, Speed, Unit, bAvoid);
   	}
   	
-  	//Ë«ÂÖÆ½ºâ³µ
+  	//åŒè½®å¹³è¡¡è½¦
   	public static AppMessage.Request.Builder func(AppMessage.MotionMode mode
   			) {	
-  		// ¶¯×÷
+  		// åŠ¨ä½œ
   		AppMessage.RobotAction.Builder leftBuild = AppMessage.RobotAction
   				.newBuilder();
   		leftBuild.setType(AppMessage.RobotAction.ActionType.MOTION_SWITCH);
   		leftBuild.setMotionMode(mode);    //AppMessage.MotionMode.TWO_WHEEL  AppMessage.MotionMode.THREE_WHEEL
-  		// ¶¯×÷¼¯ºÏ
+  		// åŠ¨ä½œé›†åˆ
   		AppMessage.ActionBundle.Builder bBuild = AppMessage.ActionBundle
   				.newBuilder();
-  		// Æô¶¯Ê±¼ä
+  		// å¯åŠ¨æ—¶é—´
   		bBuild.setStartTime(0);
   		bBuild.addAction(leftBuild.build());
-  		// ¶¯×÷²ÎÊı ÊÇ·ñ±ÜÕÏ
+  		// åŠ¨ä½œå‚æ•° æ˜¯å¦é¿éšœ
   		AppMessage.ActionParams.Builder aBuild = AppMessage.ActionParams
   				.newBuilder();
   		aBuild.setAvoid(true);
 
   		aBuild.addActions(bBuild.build());
-  		// ¶¯×÷ÇëÇó°ü
+  		// åŠ¨ä½œè¯·æ±‚åŒ…
   		AppMessage.Request.Builder requestBuilder = AppMessage.Request
   				.newBuilder();
   		requestBuilder
@@ -191,7 +191,7 @@ public class MainActivity extends Activity implements OnLinkListener {
   		return (requestBuilder);
   	}
 
-  	// playalum  ²âÊÔÓĞÎÊÌâ
+  	// playalum  æµ‹è¯•æœ‰é—®é¢˜
   	public static AppMessage.Request.Builder func_playalum(int alblumId, int resindex,
   			int playmod, boolean noAction) {
   		AppMessage.Request.Builder localBuilder = AppMessage.Request
@@ -207,7 +207,7 @@ public class MainActivity extends Activity implements OnLinkListener {
   		return (localBuilder);
   	}
 
-  	// play  ²âÊÔÓĞÎÊÌâ
+  	// play  æµ‹è¯•æœ‰é—®é¢˜
   	public static AppMessage.Request.Builder func_play(int alblumId, int mediaid,
   			AppMessage.PlayParams.Action paramAction, String paramString,
   			boolean noAction) {
@@ -245,7 +245,7 @@ public class MainActivity extends Activity implements OnLinkListener {
   	public static AppMessage.Request.Builder factory_test(com.luobotec.message.AppMessage.FactoryTestParams.Command command) {
   		AppMessage.FactoryTestParams.Builder fBuild = AppMessage.FactoryTestParams
   				.newBuilder();
-  		// fBuild.setNluText("½ñÌìÌìÆø");
+  		// fBuild.setNluText("ä»Šå¤©å¤©æ°”");
   		fBuild.setCommand(command);
 
   		AppMessage.Request.Builder requestBuilder = AppMessage.Request
@@ -256,7 +256,7 @@ public class MainActivity extends Activity implements OnLinkListener {
   		return (requestBuilder);
   	}
   	public static AppMessage.Request.Builder func_takepic() {
-  		// ÅÄÕÕ²âÊÔ ²»ÖªÊÇ·ñ ²âÊÔ³É¹¦
+  		// æ‹ç…§æµ‹è¯• ä¸çŸ¥æ˜¯å¦ æµ‹è¯•æˆåŠŸ
   		AppMessage.Request.Builder requestBuilder = factory_test(com.luobotec.message.AppMessage.FactoryTestParams.Command.TAKE_PICTURE);
   		return (requestBuilder);
   	}
@@ -265,7 +265,7 @@ public class MainActivity extends Activity implements OnLinkListener {
   		AppMessage.BluetoothParams.Builder kBuild = AppMessage.BluetoothParams
   				.newBuilder();
   		kBuild.setType(AppMessage.BluetoothParams.BluetoothType.CONNECT);
-  		kBuild.setName("Ğ¡ÂÜ²·");
+  		kBuild.setName("å°èåœ");
 
   		AppMessage.Request.Builder requestBuilder = AppMessage.Request
   				.newBuilder();
@@ -275,40 +275,40 @@ public class MainActivity extends Activity implements OnLinkListener {
   		return (requestBuilder);
   	}
 
-  	//Í£Ö¹
+  	//åœæ­¢
   	public static AppMessage.Request.Builder move_stop() {
   		return func(AppMessage.RobotAction.ActionDirection.KEEP,
   				AppMessage.RobotAction.ActionDirection.KEEP, 0, 0, 0, 0, false,
   				true);
   	}
 
-  	// ÓÒ×ª
+  	// å³è½¬
   	public static AppMessage.Request.Builder move_right() {
   		return func(AppMessage.RobotAction.ActionDirection.UP,
   				AppMessage.RobotAction.ActionType.LEFT_FOOT, 4, 1, false);
   	}
 
-  	// ×ó×ª
+  	// å·¦è½¬
   	public static AppMessage.Request.Builder move_left() {
   		return func(AppMessage.RobotAction.ActionDirection.UP,
   				AppMessage.RobotAction.ActionType.RIGHT_FOOT, 4, 1, false);
   	}
 
-  	// ºóÍË
+  	// åé€€
   	public static AppMessage.Request.Builder move_back() {
   		return func(AppMessage.RobotAction.ActionDirection.DOWN, 4, 1, true);
   	}
 
-  	// Ç°½ø
+  	// å‰è¿›
   	public static AppMessage.Request.Builder move_front() {
   		return func(AppMessage.RobotAction.ActionDirection.UP, 4, 1, true);
   	}
-  	//²âÊÔÓĞÎÊÌâ
+  	//æµ‹è¯•æœ‰é—®é¢˜
   	public static AppMessage.Request.Builder func_a(int alblumId, int resindex) {
   		return func_playalum(alblumId, resindex, 1, false);
 
   	}
-  	//²âÊÔÓĞÎÊÌâ
+  	//æµ‹è¯•æœ‰é—®é¢˜
   	public static AppMessage.Request.Builder func_x() {
   		return func_play(0, -1, AppMessage.PlayParams.Action.PLAY_ALL, "", true);
 
@@ -388,11 +388,11 @@ public class MainActivity extends Activity implements OnLinkListener {
             }
         });
         
-        //wifiÅäÖÃ
+        //wifié…ç½®
         mBtnWifiU = (Button) findViewById(R.id.btnWifi);
         mBtnWifiU.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //¹¹½¨Êı¾İ°ü
+                //æ„å»ºæ•°æ®åŒ…
                 AppMessage.WifiParams.Builder mybuild= AppMessage.WifiParams.newBuilder();
                 
                 String ssid = mSsidEditText.getText().toString();
@@ -415,7 +415,7 @@ public class MainActivity extends Activity implements OnLinkListener {
             }    
    
         });
-        //wifi¶Ï¿ª
+        //wifiæ–­å¼€
         mBtnWifiD = (Button) findViewById(R.id.BtnWifiD);
         mBtnWifiD.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) { 
@@ -425,38 +425,38 @@ public class MainActivity extends Activity implements OnLinkListener {
    
         });
         
-        //Ç°½ø
+        //å‰è¿›
         mBtnMoveU = (Button) findViewById(R.id.BtnMoveU);
         mBtnMoveU.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = move_front();
             	mBleLinker.SendMsg(requestBuilder);
             }    
         });
-        //ºóÍË
+        //åé€€
         mBtnMoveD = (Button) findViewById(R.id.btnMoveD);
         mBtnMoveD.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = move_back();
             	mBleLinker.SendMsg(requestBuilder);
             }    
         });
-        //×ó×ª
+        //å·¦è½¬
         mBtnMoveL = (Button) findViewById(R.id.BtnMoveL);
         mBtnMoveL.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = move_left();
             	mBleLinker.SendMsg(requestBuilder);
             }    
         });
-        //ÓÒ×ª
+        //å³è½¬
         mBtnMoveR = (Button) findViewById(R.id.BtnMoveR);
         mBtnMoveR.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = move_right();
             	mBleLinker.SendMsg(requestBuilder);
             }    
@@ -465,7 +465,7 @@ public class MainActivity extends Activity implements OnLinkListener {
         mBtnMoveS = (Button) findViewById(R.id.BtnStop);
         mBtnMoveS.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) {    
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = move_stop();
             	mBleLinker.SendMsg(requestBuilder);
             }    
@@ -474,7 +474,7 @@ public class MainActivity extends Activity implements OnLinkListener {
         
         
         
-        //±äÁ³
+        //å˜è„¸
         mBtnFace = (Button) findViewById(R.id.BtnFace);
         mBtnFace.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) { 
@@ -487,13 +487,13 @@ public class MainActivity extends Activity implements OnLinkListener {
         mBtnWheel = (Button) findViewById(R.id.btnWheel);
         mBtnWheel.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) { 
-                //µã»÷ÁËmove
+                //ç‚¹å‡»äº†move
             	AppMessage.Request.Builder requestBuilder = func(AppMessage.MotionMode.TWO_WHEEL);
             	mBleLinker.SendMsg(requestBuilder); 
     	        
             }    
         });
-//        //³ª¸è
+//        //å”±æ­Œ
 //        mBtnSing = (Button) findViewById(R.id.BtnSing);
 //        mBtnSing.setOnClickListener(new Button.OnClickListener(){ 
 //            public void onClick(View v) { 
@@ -501,7 +501,7 @@ public class MainActivity extends Activity implements OnLinkListener {
 //            	AppMessage.Request.Builder requestBuilder = AppMessage.Request.newBuilder();
 //      	        requestBuilder.setId(1);
 //    	        AppMessage.FactoryTestParams.Builder fBuild = AppMessage.FactoryTestParams.newBuilder();
-//    	        fBuild.setNluText("³ª¸è");
+//    	        fBuild.setNluText("å”±æ­Œ");
 //    	        //fBuild.setCommand(com.luobotec.message.AppMessage.FactoryTestParams.Command.EMOTION);
 //    	        requestBuilder.setType(com.luobotec.message.AppMessage.MessageType.factory_test);
 //    	        requestBuilder.setFactoryTestParams(fBuild);
@@ -509,7 +509,7 @@ public class MainActivity extends Activity implements OnLinkListener {
 //    	        
 //            }    
 //        });
-//        //ÌøÎè
+//        //è·³èˆ
 //        mBtnDance = (Button) findViewById(R.id.BtnDance);
 //        mBtnDance.setOnClickListener(new Button.OnClickListener(){ 
 //            public void onClick(View v) { 
@@ -517,7 +517,7 @@ public class MainActivity extends Activity implements OnLinkListener {
 //            	AppMessage.Request.Builder requestBuilder = AppMessage.Request.newBuilder();
 //      	        requestBuilder.setId(1);
 //    	        AppMessage.FactoryTestParams.Builder fBuild = AppMessage.FactoryTestParams.newBuilder();
-//    	        fBuild.setNluText("ÌøÎè");
+//    	        fBuild.setNluText("è·³èˆ");
 //    	        //fBuild.setCommand(com.luobotec.message.AppMessage.FactoryTestParams.Command.EMOTION);
 //    	        requestBuilder.setType(com.luobotec.message.AppMessage.MessageType.factory_test);
 //    	        requestBuilder.setFactoryTestParams(fBuild);
@@ -525,7 +525,7 @@ public class MainActivity extends Activity implements OnLinkListener {
 //    	        
 //            }    
 //        });
-        //½²¹ÊÊÂ
+        //è®²æ•…äº‹
         mBtnStory = (Button) findViewById(R.id.BtnStory);
         mBtnStory.setOnClickListener(new Button.OnClickListener(){ 
             public void onClick(View v) { 
@@ -533,7 +533,7 @@ public class MainActivity extends Activity implements OnLinkListener {
             	AppMessage.Request.Builder requestBuilder = AppMessage.Request.newBuilder();
       	        requestBuilder.setId(1);
     	        AppMessage.FactoryTestParams.Builder fBuild = AppMessage.FactoryTestParams.newBuilder();
-    	        fBuild.setNluText("½²¹ÊÊÂ");
+    	        fBuild.setNluText("è®²æ•…äº‹");
     	        //fBuild.setCommand(com.luobotec.message.AppMessage.FactoryTestParams.Command.EMOTION);
     	        requestBuilder.setType(com.luobotec.message.AppMessage.MessageType.factory_test);
     	        requestBuilder.setFactoryTestParams(fBuild);
@@ -699,7 +699,7 @@ public class MainActivity extends Activity implements OnLinkListener {
         Log.i(TAG, "onProgress: " + progress);
         
         if (progress == LinkingProgress.FIND_DEVICE)
-        {//ÕÒµ½Éè±¸
+        {//æ‰¾åˆ°è®¾å¤‡
         	mBtnMoveU.setEnabled(true);
         	mBtnMoveD.setEnabled(true);    
         	mBtnMoveL.setEnabled(true);

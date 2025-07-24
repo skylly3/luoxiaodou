@@ -46,8 +46,8 @@ public class Ble {
 	private LeScanCallback mLeScanCallback;
 	private BluetoothGatt mBluetoothGatt;
 	private BluetoothGattCallback mBluetoothGattCallback;
-	private BluetoothGattCharacteristic mNotifyGattCharacteristic;   //±»¶¯ ¶Á²Ù×÷µÄÌØÕ÷Öµ
-	private BluetoothGattCharacteristic mReadWriteGattCharacteristic;  //Ğ´²Ù×÷µÄÌØÕ÷Öµ
+	private BluetoothGattCharacteristic mNotifyGattCharacteristic;   //è¢«åŠ¨ è¯»æ“ä½œçš„ç‰¹å¾å€¼
+	private BluetoothGattCharacteristic mReadWriteGattCharacteristic;  //å†™æ“ä½œçš„ç‰¹å¾å€¼
 	private BleCallback mTransferCallback;
 	private Handler mHandler = new Handler();
 	private Runnable mCancelScanRunnable;
@@ -154,7 +154,7 @@ public class Ble {
 		};
 		mBluetoothGattCallback = new BluetoothGattCallback() {
 
-			//Á¬½Ó×´Ì¬¸Ä±ä
+			//è¿æ¥çŠ¶æ€æ”¹å˜
 			@Override
 			public void onConnectionStateChange(BluetoothGatt gatt, int status,
 					int newState) {
@@ -179,7 +179,7 @@ public class Ble {
 				}
 			}
 
-			//·¢ÏÖÉè±¸»Øµ÷
+			//å‘ç°è®¾å¤‡å›è°ƒ
 			@Override
 			public void onServicesDiscovered(BluetoothGatt gatt, int status) {
 				// TODO Auto-generated method stub
@@ -194,7 +194,7 @@ public class Ble {
 						Log.d(TAG, "onServicesDiscovered:" + service.getUuid());
 						
 						if (service.getUuid().equals(UUID.fromString(serviceUuid))) 
-						{//ÕÒµ½¶ÁĞ´·şÎñ
+						{//æ‰¾åˆ°è¯»å†™æœåŠ¡
 							if (!TextUtils.isEmpty(notifyCharacteristicUuid)) {
 
 								mNotifyGattCharacteristic = service.getCharacteristic(
@@ -241,7 +241,7 @@ public class Ble {
 				}
 			}
 
-			//±»¶¯ÊÕÊı¾İ»Øµ÷  ÓÃµÄ¶à
+			//è¢«åŠ¨æ”¶æ•°æ®å›è°ƒ  ç”¨çš„å¤š
 			@Override
 			public void onCharacteristicChanged(BluetoothGatt gatt,
 					BluetoothGattCharacteristic characteristic) {
@@ -255,7 +255,7 @@ public class Ble {
 				}
 			}
 			
-			//Ğ´²Ù×÷»Øµ÷
+			//å†™æ“ä½œå›è°ƒ
 			@Override
 			public void onCharacteristicWrite(BluetoothGatt gatt,
 					BluetoothGattCharacteristic characteristic, int status) {
@@ -268,7 +268,7 @@ public class Ble {
 				}
 			}
 
-			//Ö÷¶¯¶ÁÊı¾İ»Øµ÷  ÓÃµÄÉÙ
+			//ä¸»åŠ¨è¯»æ•°æ®å›è°ƒ  ç”¨çš„å°‘
 			@Override
 			public void onCharacteristicRead(BluetoothGatt gatt,
 					BluetoothGattCharacteristic characteristic, int status) {
@@ -283,7 +283,7 @@ public class Ble {
 				}
 			}
 			
-			//Ğ´²Ù×÷»Øµ÷
+			//å†™æ“ä½œå›è°ƒ
 			@Override
 			public void onDescriptorWrite(BluetoothGatt gatt,
 					BluetoothGattDescriptor descriptor, int status) {
@@ -546,13 +546,13 @@ public class Ble {
 			return false;
 		}
 		if (mBluetoothGatt != null)
-		{//ÒÑ¾­Á¬½Ó  ÔòÏÈ¶Ï¿ª
+		{//å·²ç»è¿æ¥  åˆ™å…ˆæ–­å¼€
 		//	mBluetoothGatt.connect();
 			mBluetoothGatt.disconnect();
 			mBluetoothGatt.close();
 			mBluetoothGatt = null;
 		}
-		//¿ªÊ¼Á¬½Ó Òì²½¹ı³Ì
+		//å¼€å§‹è¿æ¥ å¼‚æ­¥è¿‡ç¨‹
 		mBluetoothGatt = device.connectGatt(mContext, false, mBluetoothGattCallback);
 		if (mBluetoothGatt != null && mTransferCallback != null) {
 			mTransferCallback.onConnectionChanged(BleCallback.STATE_CONNECTING);
@@ -611,7 +611,7 @@ public class Ble {
 		mBluetoothGatt.readCharacteristic(mReadWriteGattCharacteristic);
 	}
 	
-	//ÆôÓÃ±»¶¯¶ÁÊı¾İµÄ½Ó¿Ú
+	//å¯ç”¨è¢«åŠ¨è¯»æ•°æ®çš„æ¥å£
 	/**
 	 * Enable the notify. A {@link BleCallback#onNotifyChanged(Boolean)} callback is triggered
 	 *  to report the result of the enable operation. 
@@ -623,7 +623,7 @@ public class Ble {
 			
 			mBluetoothGatt.setCharacteristicNotification(mNotifyGattCharacteristic, enable);
 
-			//±éÀúdescriptors, ÉèÖÃenable
+			//éå†descriptors, è®¾ç½®enable
 			for(BluetoothGattDescriptor dp:mNotifyGattCharacteristic.getDescriptors()) {
 				dp.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
 				mBluetoothGatt.writeDescriptor(dp);
@@ -633,7 +633,7 @@ public class Ble {
 			
 			if (mTransferCallback != null)
 			{
-			   //Í¨ÖªÉÏ²ã Á¬½ÓÉÏÁË
+			   //é€šçŸ¥ä¸Šå±‚ è¿æ¥ä¸Šäº†
 				mTransferCallback.onNotifyChanged(enable);
 			}
 			
@@ -652,7 +652,7 @@ public class Ble {
 		}
 	}
 	
-	//·µ»Ø ±»¶¯¶Á½Ó¿ÚÊÇ·ñÆôÓÃ
+	//è¿”å› è¢«åŠ¨è¯»æ¥å£æ˜¯å¦å¯ç”¨
 	/**
 	 * Read the notify enabled status, A {@link BleCallback#onNotifyRead(Boolean)} callback is triggered
 	 *  to report the result of the read operation. 
@@ -663,7 +663,7 @@ public class Ble {
 		
 		if (mBluetoothGatt != null && mNotifyGattCharacteristic != null) {
 
-			//ÔİÎ´ÊµÏÖ
+			//æš‚æœªå®ç°
 //			BluetoothGattDescriptor descriptor = mNotifyGattCharacteristic.getDescriptor(
 //					UUID.fromString(TRANSFOR_READ));
 //			if (descriptor != null) {
