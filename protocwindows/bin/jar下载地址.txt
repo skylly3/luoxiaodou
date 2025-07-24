@@ -1,0 +1,5 @@
+http://search.maven.org/remotecontent?filepath=com/google/protobuf/protobuf-java/3.4.0/protobuf-java-3.4.0.jar
+
+
+下载地址 https://github.com/protocolbuffers/protobuf/releases。下载 protobuf-java-3.7.0.zip 和 protoc-3.7.0-win64.zip。
+

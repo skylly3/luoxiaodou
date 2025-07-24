@@ -1,0 +1,386 @@
+syntax = "proto2";
+
+package com.luobotec.message;//指定java的包名,生成java之后的包路径
+//option java_package = "com.luobotec.message"; \\指定java的报名
+option java_outer_classname = "AppMessage";//指定java的编译前类名,生成java之后,java文件交
+
+enum MessageType //枚举消息类型
+{
+	rebotstate = 0;
+	upgrade = 1;
+	wifi = 2;
+	userinfo = 3;
+	volume = 4;
+	play = 5;
+	stop = 6;
+	download_resource = 7;
+	action = 8;
+	command = 9;
+	custom = 10;
+	bluetooth = 11;
+	savedance = 12;
+	statinfo = 13;
+	notification = 14;
+	trainnotification = 15;
+	videoanimation = 16;
+	videocallstatus = 17;
+	videocallresponse = 18;
+	contactstatusrequest = 19;
+	delete_resource = 20;
+	factory_test = 21;
+}
+
+enum MotionMode {  //枚举消息类型
+	THREE_WHEEL = 0;
+	TWO_WHEEL = 1;
+}
+
+message RobotAction {
+    enum ActionDirection //枚举消息类型
+    {
+         KEEP = 0;
+		 UP = 1;
+		 DOWN = 2;
+    }
+    enum ActionType //枚举消息类型
+    {
+		 LEFT_FOOT = 0;
+		 RIGHT_FOOT = 1;
+		 LEFT_HAND = 2;
+		 RIGHT_HAND = 3;
+		 LEFT_SHOULDER = 4;
+		 RIGHT_SHOULDER = 5;
+		 HEAD_NOD = 6;
+		 HEAD_SHAKE = 7;
+		 MOTION = 8;
+		 EMOTION = 9;
+		 EYES = 10;
+		 ERROR = 11;
+		 HEAD_NOD_XD = 12;
+		 HEAD_SHAKE_XD = 13;
+		 FEET = 14;
+		 MOTION_SWITCH = 15; 
+    }
+    enum EyeType //枚举消息类型
+    {
+         EYE_R = 0;
+		 EYE_G = 1;
+		 EYE_B = 2;
+		 EYE_RG = 3;
+		 EYE_RB = 4;
+		 EYE_GB = 5;
+		 EYE_RGB = 6;
+		 EYS_OFF = 7;
+    }	
+	required ActionType type = 1;  
+	optional int32 speed = 2;         
+	optional ActionDirection direction = 3;
+	optional int32 units = 4;
+	optional int32 motion_Id = 5;
+	optional int32 emotion_Id = 6;
+	optional EyeType left_Eye = 7;
+	optional EyeType right_Eye = 8;
+	optional MotionMode motion_Mode = 9;
+}
+
+message ActionBundle {
+	repeated RobotAction Action = 1;
+	required int32 Start_Time = 2;
+}
+
+message ActionParams {
+	repeated ActionBundle actions = 1;
+	optional int32 repeat = 2;
+	optional bool rest = 3;
+	required bool avoid = 4;
+}
+
+message AvChatState {
+	required int32 avchat_Status = 1;
+}
+
+message BluetoothParams {
+    enum BluetoothType //枚举消息类型
+    {
+       CONNECT = 0;        //连接
+       DISCONNECT = 1;     //断开
+       RENAME = 2;         //重命名
+    }
+	required BluetoothType type = 1;         
+	required string name = 2;
+}
+
+message CommandParams {
+  required string command = 1;
+}
+
+message UserInfoParams {
+    enum GenderType //枚举消息类型
+    {
+       GENDER_BOY = 0;        //男孩
+       GENDER_GIRL = 1;       //女孩
+       GENDER_UNKNOW = 2;     //未知
+    }
+	required string name = 1;
+	required string birthday = 2;
+	required GenderType gender = 3;
+}
+
+message WifiParams {
+    required string name = 1;
+    required string pwd = 2;
+}
+
+message UpgradeParams {
+	optional string upgradeFinish = 1;
+	required string upgradeInfo = 2;
+	optional string downloadProgress = 3;
+	required int32 type = 4;                 //测试参数为1
+}
+
+message PlayParams {
+    enum Action //枚举消息类型
+    {
+      PAUSE = 0;          //暂停
+      CONTINUE = 1;       //继续
+      PLAY_ALL = 2;       //全部播放
+      PLAY = 3;           //播放
+      PRE = 4;            //上一曲
+      NEXT = 5;           //下一曲
+    }
+	required int32 album_Id = 1;
+	optional string name = 2;
+	optional int32 mediaId = 3;
+	required bool no_Action = 4;
+	required Action action = 5;
+}
+
+enum VolumeType //枚举消息类型
+{
+	PLUS = 0;     //音量加
+	MINUS = 1;    //音量减
+	OFF = 3;      //静音
+	ON = 4;       //音量开
+}
+
+message DownloadResourceParams {
+    enum DownloadState//枚举消息类型
+    {
+      SUCCESS = 0;                 //成功
+      DOWNLOADING = 1;             //正在下载
+      FAIL = 2;                    //失败
+      STORAGE_FULL = 3;            //存储满
+    }
+	required int32 media_Id = 1;
+	required int32 progress = 2;
+	required int32 album_Id = 3;
+	required DownloadState state = 4;
+}
+
+message FactoryTestParams {
+    enum Command//枚举消息类型
+    {
+      EMOTION = 0;              //表情板测试
+      FORGET_WIFI = 1;          //断开wifi
+      TAKE_PICTURE = 2;         //估计是拍照
+    }
+	optional Command command = 1;
+	optional string nluText = 2;        //待ai回答的自然文字,比如今天天气
+	optional string pictureUrl = 3;
+}
+
+message CustomParams {
+	required string question = 1;
+	required string answer = 2;
+}
+
+message SaveDanceParams {
+	required int32 resid = 1;
+	required ActionParams dance = 2;
+}
+
+message StatParams {
+	required string info = 1;
+}
+
+message NetNotificationParams {
+	required string phoneNum = 1;
+	required string fileType = 2;
+}
+
+message TrainNotificationParams {
+	required string answer = 1;
+	required string question = 2;
+}
+message VideoAnimationParams {
+	required string id = 1;
+}
+
+message VideoCallStatusParams {
+    enum SocketStatus//枚举消息类型
+    {
+      OFFLINE = 0;         //在线
+      ONLINE = 1;          //离线
+    }
+	required SocketStatus status = 1;
+}
+
+message VideoCallResponseParams {
+    enum ResponseType//枚举消息类型
+    {
+      REJECT = 0;           //拒绝
+      HANGEUP = 1;          //挂断
+    }
+	required ResponseType type = 1;
+}
+message ContactStatusRequestParams {
+	required string statusRequest = 1;
+}
+
+message PlayAlbumParams {
+	required int32 album_Id = 1;
+	required int32 res_Index = 2;
+	required bool no_Action = 3;
+	required int32 play_Mode = 4;	
+}
+
+message DeleteResourceParams {
+	message MediaInfo {
+	required int32 media_Id_ = 1;
+	required int32 album_Id = 2;
+	required int32 status = 3;
+	}
+	repeated MediaInfo mediaInfo = 1;
+}
+enum RobotStateType //枚举消息类型
+{
+	STATE_PLAY = 0;
+	STATE_WIFI = 1;
+	STATE_ROBOT_INFO = 2;
+	STATE_DOWNLOAD_RESOURCE = 3;
+	STATE_LOG = 4;
+	STATE_MOTION_TYPE = 5;
+	STATE_AVCHAT = 6;	
+}
+
+message PlayState {
+    enum State//枚举消息类型
+    {
+      RES_PLAYING = 0;          //播放
+      RES_STOPPED = 1;          //停止
+      RES_INTERRUPT = 2;        //中断
+    }
+	required int32 res_Id = 1; 
+	required State state = 2;
+}
+
+message WifiState {
+    enum State//枚举消息类型
+    {
+      CONNECTING = 0;          	//正在连接
+      CONNECTED = 1;          	//已连接
+      FAILED = 2;        		//失败
+    }
+	required string name = 1;
+	required State state = 2;
+	required string ip = 3;
+	required int32 rssi = 4; 
+	required int32 rssiLevel = 5; 
+}
+
+message RobotInfo {
+    enum BatteryState//枚举消息类型
+    {
+      CHARGENO = 0;          	//未充电
+      CHARGING = 1;          	//正在充电
+      CHARGEOK = 2;        		//充电完成
+    }
+	required int32 battery = 1; 
+	required BatteryState battery_State = 2; 
+	required int32 total_Storage = 3; 
+	required int32 usable_Storage = 4; 
+	required string version_Name = 5; 
+	required int32 version_Code = 6; 
+	required string iMEI = 7; 
+	required string sN_NUMBER = 8; 
+}
+
+message DownloadState {
+    enum State//枚举消息类型
+    {
+      DOWNLOADING = 0;          //正在下载
+      DOWNLOADED = 1;          	//已下载
+      FAILED = 2;        		//失败
+    }
+	required int32 id = 1;
+	required string name = 2;
+	required State state = 3;
+	required int32 progress = 4; 
+}
+
+message RobotState {
+	required PlayState play_State = 1;
+	required WifiState wifi_State = 2;
+	required RobotInfo robot_Info = 3;
+	required DownloadState download_State = 4;
+	//required PlayState play_State = 5;
+	required string log = 6;
+	required RobotStateType state_Type = 7;
+	required MotionMode motion_Mode = 8;
+	required AvChatState avchat_State = 9;	
+}
+
+message Request {
+	required MessageType type = 1; 
+	required int32 id = 2; 
+	optional UpgradeParams upgrade = 3;
+	optional WifiParams wifi = 4;
+	optional UserInfoParams userinfo = 5;
+	optional VolumeType volume = 6;
+	optional PlayParams play = 7;
+	optional DownloadResourceParams downloadParams = 8;
+	optional ActionParams actions = 9;
+	optional CommandParams command = 10;
+	optional CustomParams custom = 11;
+	optional BluetoothParams bluetooth = 12;
+	optional SaveDanceParams savedance = 13;
+	optional StatParams statinfo = 14;
+	optional NetNotificationParams netnotification = 15;
+	optional TrainNotificationParams trainnotification = 16;
+	optional VideoAnimationParams videoanimation = 17;
+	optional VideoCallStatusParams videocallstatus = 18;
+	optional VideoCallResponseParams videocallresponse = 19;
+	optional ContactStatusRequestParams contactstatusrequest = 20;
+	optional PlayAlbumParams playAblum = 21;
+	optional DeleteResourceParams deleteResource = 22;
+	optional RobotStateType stateType = 23;
+	optional FactoryTestParams factoryTestParams = 24;
+	optional RobotState robotState = 25;
+}
+
+message Response {
+   enum ErrorCode//枚举消息类型
+    {
+      OK = 0;          //
+      ERROR = 1;          	//
+    }
+   enum BleType//枚举消息类型
+    {
+      ANDORID = 0;          //
+      MODULE = 1;          	//
+    }
+	optional MessageType type = 1;
+	optional RobotState robot_State = 2;
+	required int32 id = 3; 
+	optional ErrorCode err_Code = 4;
+	optional VideoCallStatusParams call_Status = 5;
+	optional VideoCallResponseParams call_Response = 6;
+	optional ContactStatusRequestParams status_Request = 7;
+	optional UpgradeParams upgradeParams = 8;
+	optional DownloadResourceParams downloadParams = 9;
+	optional DeleteResourceParams deleteResource = 10;
+	optional BleType ble_Type = 11;
+	optional FactoryTestParams factoryTestParams = 12;
+}
+
+

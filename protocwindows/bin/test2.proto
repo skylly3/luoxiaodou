@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package net.cc.luffy.entity.proto;//指定java的包名,生成java之后的包路径
+//option java_package = "net.cc.luffy.entity.proto"; \\指定java的报名
+option java_outer_classname = "UpDownProto";//指定java的编译前类名,生成java之后,java文件交
+
+// 起降记录
+message UpDown {
+
+    // 起降记录ID
+    fixed64 id = 1;
+    // 设备ID
+    string deviceId = 2;
+    // 用户ID
+    fixed64 usrId = 3;
+    // 厂商ID
+    string mid = 4;
+    // 起飞时间
+    fixed64 upTime = 5;
+    // 降落时间
+    fixed64 downTime = 6;
+    // 飞行状态
+    int32 flyStatus = 7;
+    // 是否删除
+    bool isDelete = 8;
+    // 日志跟踪ID
+    string traceId = 9;
+    // 创建时间
+    fixed64 createdate = 10;
+    // 平均速度
+    double avgSpeed = 11;
+    // 平均高度
+    double avgHeight = 12;
+    // 最大速度
+    double maxSpeed = 13;
+    // 最大高度
+    double maxHeight = 14;
+    // 最小速度
+    double minSpeed = 15;
+    // 最小高度
+    double minHeight = 16;
+    // 开关机记录ID
+    fixed64 onOffId = 17;
+}

@@ -1,0 +1,29 @@
+<resources>
+    <string name="blelinker_app_name">萝小逗</string>
+    <string name="blelinker_ssid">SSID:</string>
+    <string name="blelinker_password">密码:</string>
+    <string name="blelinker_ble_name">BLE名称:</string>
+    <string name="blelinker_start">连接蓝牙</string>
+    <string name="blelinker_stop">结束</string>
+    <string name="blelinker_no_valid_wifi_connection">未连接WiFi</string>
+    <string name="blelinker_canceling">取消中, 请稍后...</string>
+    <string name="blelinker_permission_denied">授权失败！请前往手机“设置”允许该APP的权限申请。</string>
+    <string name="blelinker_location_prodiver_disabled">请开启定位服务!</string>
+    <string name="blelinker_ble_not_supported">抱歉，您的手机不支持BLE！</string>
+    <string name="blelinker_bluetooth_disabled">蓝牙已关闭</string>
+    <string name="blelinker_move">移动</string>
+    <string name="blelinker_snd">音量</string>
+    <string name="blelinker_sound">音量</string>
+    <string name="blelinker_moveu">前进</string>
+    <string name="blelinker_moveD">后退</string>
+    <string name="blelinker_wifi">配置wifi</string>
+    <string name="blelinker_wifiD">断开wifi</string>
+    <string name="blelinker_face">表情秀</string>
+    <string name="blelinker_sing">唱歌</string>
+    <string name="blelinker_Dance">跳舞</string>
+    <string name="blelinker_Story">讲故事</string>
+     <string name="blelinker_wheel">两轮平衡</string>
+    <string name="blelinker_MoveL">左转</string>
+    <string name="blelinker_MoveR">右转</string>
+    <string name="blelinker_stopmove">停止运动</string> 
+</resources>
