@@ -1,0 +1,85 @@
+/dev/ttyMT0   9600               普通串口(可以发送运动动作指令或者功能动作指令)
+/dev/ttyMT1";  c = 115200;       蓝牙串口
+
+运行动作指令：
+c.put(Action.Type.HEAD_NOD, (byte) 0xF1);      // 十进制 -15 → 十六进制 0xF1
+c.put(Action.Type.HEAD_SHAKE, (byte) 0xF2);    // 十进制 -14 → 十六进制 0xF2
+c.put(Action.Type.LEFT_SHOULDER, (byte) 0xF3); // 十进制 -13 → 十六进制 0xF3
+c.put(Action.Type.RIGHT_SHOULDER, (byte) 0xF4); // 十进制 -12 → 十六进制 0xF4
+c.put(Action.Type.LEFT_HAND, (byte) 0xF5);     // 十进制 -11 → 十六进制 0xF5
+c.put(Action.Type.RIGHT_HAND, (byte) 0xF6);    // 十进制 -10 → 十六进制 0xF6
+c.put(Action.Type.LEFT_FOOT, (byte) 0xF7);     // 十进制 -9 → 十六进制 0xF7
+c.put(Action.Type.RIGHT_FOOT, (byte) 0xF8);    // 十进制 -8 → 十六进制 0xF8
+c.put(Action.Type.HEAD_NOD_XD, (byte) 0xE2);   // 十进制 -30 → 十六进制 0xE2
+c.put(Action.Type.HEAD_SHAKE_XD, (byte) 0xE1); // 十进制 -31 → 十六进制 0xE1
+c.put(Action.Type.FEET, (byte) 0xED);          // 十进制 -19 → 十六进制 0xED
+c.put(Action.Type.FEET_NEW, (byte) 0xEF);      // 十进制 -17 → 十六进制 0xEF
+c.put(Action.Type.WHEEL_TEST, (byte) 0xD3);    // 十进制 -45 → 十六进制 0xD3
+
+最终下发范例：
+FF 05 03 EF 0C 14 F7
+
+0xFF //帧头
+0x05 //后面的总长度
+0x03 //序号
+0xEF //指令码: feet_new 目前只支持这种类型
+0x0C //参数1:  bit7:左轮方向|(1:前进 0:后退) bit6~bit4:左轮速度(范围0~7) bit3:右轮方向|(1:前进 0:后退) bit2~bit0:右轮速度(范围0~7)
+0x14 //参数2:  动作时长
+0xF7 //校验码(=0xef ^ 0x0C ^ 0x14)
+
+功能动作指令：
+d.put(Action.Type.RESET, (byte) 0xF0);          // 十进制 -16 → 十六进制 0xF0          //关节复位
+d.put(Action.Type.AVOID, (byte) 0xFE);          // 十进制 -2 → 十六进制 0xFE
+d.put(Action.Type.SHUTDOWN, (byte) 0xA0);       // 十进制 -96 → 十六进制 0xA0
+d.put(Action.Type.EMOTION, (byte) 0xFC);        // 十进制 -4 → 十六进制 0xFC
+d.put(Action.Type.AGING_TEST, (byte) 0xEE);     // 十进制 -18 → 十六进制 0xEE
+d.put(Action.Type.MOTION_SWITCH, (byte) 0xD0);  // 十进制 -48 → 十六进制 0xD0
+d.put(Action.Type.QUERY_VERSION, (byte) 0xD1);  // 十进制 -47 → 十六进制 0xD1
+d.put(Action.Type.QUERY_MOTION_MODE, (byte) 0xD2); // 十进制 -46 → 十六进制 0xD2
+
+最终下发范例：
+FF 04 10 FC 26 DA  //充电表情
+FF 04 10 FC 08 F4  //高兴表情
+FF 04 0B FC 07 FB   //音乐表情
+FF 04 10 FC 06 FA //眩晕表情
+FF 04 10 FC 05 F9   //左瞅表情
+FF 04 10 FC 04 F8  //右瞅表情
+FF 04 10 FC 03 FF  //错误表情
+FF 04 10 FC 02 FE  //正确表情
+FF 04 10 FC 01 FD  //悲伤表情
+
+
+FF 04 10 A0 11 B1  //关机
+
+0xFF //帧头
+0x04 //后面的总长度
+0x0B //序号
+0xFC //指令码: EMOTION,控制表情
+0x07 //参数1:  07: 播放音乐表情
+0xFB //校验码(=0xfc ^ 0x07)|
+
+代码：  (运动动作指令length为2，功能动作指令length为1)
+bool bSport = true;
+int paramLength = bSport ? 2 : 1;    //参数长度
+int commandLength = paramLength + 5; //指令总长度: 帧头(1) + 长度(1) + 序列号(1) + 指令码(1) + 校验和(1)
+byte[] command = new byte[commandLength];
+
+command[0] = -1;                           	//帧头
+command[1] = (byte) (paramLength + 2 + 1); 	//后面的长度(序号+指令码+paramLength+校验和)
+command[2] = 0;                 		//每次加1， 序号
+command[3] = getActionCode(actionType);         //指令码
+command[4] = 参数1
+command[5] = 参数2
+//command[6] = command[3] ^ command[4] ^ command[5]  效验和
+// 计算并组装校验和
+byte checksum = 0;
+for (int i = 3; i < commandLength - 1; i++) 
+{
+  checksum = (byte) (checksum ^ command[i]);
+}
+command[commandLength - 1] = checksum;
+
+
+
+
+
